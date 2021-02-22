@@ -1,0 +1,94 @@
+
+<html>
+    <head>
+    <style>
+    div {
+        border:1px solid black;
+        width:90px;
+        height:90px;
+        float:left;
+        background:#fff;
+        color:#000;
+        margin:0 -1px -1px 0;
+    }
+    .clear { clear:both }
+    .black {background:#000;color:#fff;}
+    .white {background:#fff;color:#000;}
+    body{
+        margin:50px;
+    }
+    .clickcolor
+    {
+        background-color:black ;
+    }
+    .clickcolor1
+    {
+        background-color: white;
+    }
+    </style>
+    </head>
+    <body>
+    <script type="text/javascript">
+    
+    (function () {
+        var row = 0;
+        var temp=window.prompt("enter your number");
+        var j=1;
+    while (row < parseInt(temp,10)&&j<=parseInt(temp,10)) {
+        var i=1;
+        var column = 0;
+        while (column < parseInt(temp,10)) {
+            var square = document.createElement("div");
+            if(row%2 === 0){
+                if(column%2===0)
+                {
+                    square.classList.add("white");
+                    square.addEventListener("click",function()
+                    {
+                        this.classList.toggle("clickcolor");
+                       
+                    });
+                }
+                else
+                {
+                    square.classList.add("black");
+                    square.addEventListener("click",function()
+                    {
+                       this.classList.toggle("clickcolor1");
+                    });
+                }
+                
+            }
+             else {
+                if(column%2===0)
+                {
+                    square.classList.add("black");
+                    square.addEventListener("click",function()
+                    {
+                        this.classList.toggle("clickcolor1");
+                    });
+                }
+                else
+                {
+                    square.classList.add("white");
+                    square.addEventListener("click",function()
+                    {
+                        this.classList.toggle("clickcolor");
+                    });
+                }
+            }
+    
+            if (column === 0){
+                square.classList.add("clear");
+            }
+            document.body.appendChild(square);
+            column++;
+        }
+        row++;
+    }
+        })
+    ();
+    
+    </script>
+    </body>
+    </html>
